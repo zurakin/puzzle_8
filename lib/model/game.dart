@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'dart:math';
 
+import 'package:puzzle_8/model/history.dart';
 import 'package:puzzle_8/model/tile.dart';
 
 import 'move.dart';
@@ -11,8 +12,9 @@ class Game {
     [4, 5, 6],
     [7, 8, 9]
   ];
+  History history = History();
 
-  Game(){
+  Game() {
     shuffleGrid(100);
   }
 
@@ -45,28 +47,31 @@ class Game {
     return possibleMoves;
   }
 
-  void applyMove(Move move) {
+  void applyMove(Move move, bool addToHistory) {
     Tile from = move.from;
     Tile to = move.to;
     int temp = grid[to.y][to.x];
     grid[to.y][to.x] = grid[from.y][from.x];
     grid[from.y][from.x] = temp;
+    if (addToHistory) {
+      history.registerMove(move);
+    }
   }
 
   void tryMove(Tile tile) {
-    if (hasGameEnded()){
+    if (hasGameEnded()) {
       return;
     }
     Move move = Move(tile, getTile9());
-    if (getPossibleMoves().contains(move)){
-      applyMove(move);
+    if (getPossibleMoves().contains(move)) {
+      applyMove(move, true);
     }
   }
 
-  bool hasGameEnded(){
-    for (int y=0; y<3; y++){
-      for (int x=0; x<3; x++){
-        if (grid[y][x] != 3*y+x+1){
+  bool hasGameEnded() {
+    for (int y = 0; y < 3; y++) {
+      for (int x = 0; x < 3; x++) {
+        if (grid[y][x] != 3 * y + x + 1) {
           return false;
         }
       }
@@ -74,19 +79,25 @@ class Game {
     return true;
   }
 
-  void shuffleGrid(int shufflesCount){
-    for (int i=0; i<shufflesCount; i++){
+  void shuffleGrid(int shufflesCount) {
+    for (int i = 0; i < shufflesCount; i++) {
       List<Move> possibleMoves = getPossibleMoves();
-      applyMove(possibleMoves[Random().nextInt(possibleMoves.length)]);
+      applyMove(possibleMoves[Random().nextInt(possibleMoves.length)], false);
     }
   }
 
-  void displayGrid(){
-    for (int y=0; y<3; y++){
-      for (int x=0; x<3; x++){
+  void displayGrid() {
+    for (int y = 0; y < 3; y++) {
+      for (int x = 0; x < 3; x++) {
         stderr.write("${grid[y][x]} ");
       }
       stderr.write("\n");
+    }
+  }
+
+  void undo() {
+    if (history.canPop()){
+      applyMove(history.pop()!.getOppositeMove(), false);
     }
   }
 }

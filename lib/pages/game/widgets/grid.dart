@@ -19,6 +19,18 @@ class _GridState extends State<Grid> {
     game = Game();
   }
 
+  void shuffle(){
+    setState(() {
+      game.shuffleGrid(100);
+    });
+  }
+
+  void undo(){
+    setState(() {
+      game.undo();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -28,13 +40,16 @@ class _GridState extends State<Grid> {
         _getRow(1),
         _getRow(2),
         TextButton(
-          onPressed: () {
-            setState(() {
-              game.shuffleGrid(100);
-            });
-          },
+          onPressed: shuffle,
           child: CustomText(
             text: "Shuffle",
+            size: 30,
+          ),
+        ),
+        TextButton(
+          onPressed: undo,
+          child: CustomText(
+            text: "Undo",
             size: 30,
           ),
         ),

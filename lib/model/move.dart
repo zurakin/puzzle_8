@@ -13,4 +13,8 @@ class Move {
           runtimeType == other.runtimeType &&
           from == other.from &&
           to == other.to;
+
+  Move getOppositeMove(){
+    return Move(to, from);
+  }
 }
