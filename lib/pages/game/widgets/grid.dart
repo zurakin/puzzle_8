@@ -19,9 +19,9 @@ class _GridState extends State<Grid> {
     game = Game();
   }
 
-  void shuffle(){
+  void newGame(){
     setState(() {
-      game.shuffleGrid(100);
+      game.newGame();
     });
   }
 
@@ -40,9 +40,9 @@ class _GridState extends State<Grid> {
         _getRow(1),
         _getRow(2),
         TextButton(
-          onPressed: shuffle,
+          onPressed: newGame,
           child: CustomText(
-            text: "Shuffle",
+            text: "New game",
             size: 30,
           ),
         ),

@@ -100,4 +100,9 @@ class Game {
       applyMove(history.pop()!.getOppositeMove(), false);
     }
   }
+
+  void newGame() {
+    shuffleGrid(100);
+    history.clear();
+  }
 }

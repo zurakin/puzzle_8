@@ -5,6 +5,10 @@ import 'move.dart';
 class History{
   Queue<Move> history = Queue();
 
+  void clear(){
+    history.clear();
+  }
+
   void registerMove(Move move){
     history.addLast(move);
   }
