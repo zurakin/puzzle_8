@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:puzzle_8/constants/style.dart';
 import 'package:puzzle_8/routing/routes.dart';
-
+import 'package:puzzle_8/constants/globals.dart' as globals;
 import 'drawerMenuItem.dart';
 
 class MenuDrawer extends StatelessWidget {
@@ -11,9 +11,11 @@ class MenuDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     List<Widget> widgets = drawerItems
         .map((item) => DrawerMenuItem(
-        itemName: item,
-        onTap: () {
-        }))
+            itemName: getRouteName(item),
+            icon: getIconForRoute(item),
+            onTap: () {
+              globals.navigator.navigateTo(item);
+            }))
         .toList();
     return Drawer(
       backgroundColor: primaryColor,
@@ -22,10 +24,26 @@ class MenuDrawer extends StatelessWidget {
       ),
     );
   }
+
+  getIconForRoute(String item) {
+    switch (item) {
+      case aboutPageRoute:
+        return const Icon(
+          Icons.help_outline,
+          color: drawerIconColor,
+        );
+      case newGameRoute:
+        return const Icon(
+          Icons.videogame_asset,
+          color: drawerIconColor,
+        );
+      default:
+        return const Icon(Icons.turned_in, color: Colors.white);
+    }
+  }
 }
 
-
 List<String> drawerItems = [
-  getRouteName(mainMenuRoute),
-  getRouteName(newGameRoute),
+  newGameRoute,
+  aboutPageRoute,
 ];

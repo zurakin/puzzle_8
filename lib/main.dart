@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:puzzle_8/routing/router.dart';
 import 'package:puzzle_8/routing/routes.dart';
+import 'constants/globals.dart' as globals;
 
 import 'layout.dart';
 
@@ -27,6 +28,7 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: newGameRoute,
       onGenerateRoute: generateRoute,
+      navigatorKey: globals.navigator.navigationKey,
     );
   }
 }

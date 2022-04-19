@@ -1,6 +1,6 @@
 import 'dart:collection';
 
-import 'move.dart';
+import 'game/move.dart';
 
 class History{
   Queue<Move> history = Queue();

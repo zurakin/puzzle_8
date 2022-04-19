@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:puzzle_8/pages/game/gamePage.dart';
-import 'package:puzzle_8/pages/mainMenu.dart';
+import 'package:puzzle_8/pages/about.dart';
 import 'package:puzzle_8/routing/routes.dart';
 
 Route<dynamic> generateRoute(RouteSettings settings) {
   switch(settings.name){
-    case mainMenuRoute:
-      return _getPageRoute(const MainMenuPage(), settings);
+    case aboutPageRoute:
+      return _getPageRoute(const AboutPage(), settings);
     case newGameRoute:
       return _getPageRoute(const GamePage(), settings);
     default:
-      return _getPageRoute(const MainMenuPage(), settings);
+      return _getPageRoute(const GamePage(), settings);
   }
 }
 

@@ -1,4 +1,4 @@
-import 'package:puzzle_8/model/tile.dart';
+import 'package:puzzle_8/model/game/tile.dart';
 
 class Move {
   Tile from;

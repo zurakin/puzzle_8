@@ -7,3 +7,5 @@ const Color color4 = Colors.deepPurpleAccent;
 
 const Color drawerItemTextColor = Colors.white;
 const Color gameBackgroundColor = Color(0xffa7a7a7);
+
+const Color drawerIconColor = Color(0xffc895d5);

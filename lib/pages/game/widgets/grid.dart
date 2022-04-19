@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:puzzle_8/model/game.dart';
-import 'package:puzzle_8/model/tile.dart';
+import 'package:puzzle_8/model/game/game.dart';
+import 'package:puzzle_8/model/game/tile.dart';
 import 'package:puzzle_8/widgets/customText.dart';
 
 class Grid extends StatefulWidget {

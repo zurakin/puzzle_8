@@ -1,12 +1,12 @@
-const String mainMenuRoute = "/menu";
+const String aboutPageRoute = "/about";
 const String newGameRoute = "/new_game";
 
 String getRouteName(String route) {
   switch(route){
-    case mainMenuRoute:
-      return "Main Menu";
+    case aboutPageRoute:
+      return "About";
     case newGameRoute:
-      return "New Game";
+      return "Play";
     default:
       return route; 
   }

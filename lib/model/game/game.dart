@@ -2,7 +2,7 @@ import 'dart:io';
 import 'dart:math';
 
 import 'package:puzzle_8/model/history.dart';
-import 'package:puzzle_8/model/tile.dart';
+import 'package:puzzle_8/model/game/tile.dart';
 
 import 'move.dart';
 
