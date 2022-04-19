@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:puzzle_8/constants/style.dart';
-import 'package:puzzle_8/pages/game/widgets/grid.dart';
+import 'package:puzzle_8/pages/game/widgets/gridWidget.dart';
 
 class GamePage extends StatelessWidget {
   const GamePage({Key? key}) : super(key: key);
@@ -8,13 +8,8 @@ class GamePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(10),
       color: gameBackgroundColor,
-      alignment: Alignment.center,
-      width: double.infinity,
-      child: const Center(
-        child: Grid(),
-      ),
+      child: const GridWidget(),
     );
   }
 }
