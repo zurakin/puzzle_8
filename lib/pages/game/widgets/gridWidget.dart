@@ -68,7 +68,7 @@ class _GridWidgetState extends State<GridWidget> {
   }
 
   Widget _buildTile(int tile, Function() onTap, double tileWidth) {
-    bool hidden = tile == 9 && !game.hasGameEnded();
+    bool hidden = tile == 9 && !game.isComplete();
     String text = hidden ? "" : tile.toString();
     return InkWell(
       onTap: onTap,

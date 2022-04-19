@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:puzzle_8/pages/game/gamePage.dart';
-import 'package:puzzle_8/pages/about.dart';
+import 'package:puzzle_8/pages/aboutPage.dart';
 import 'package:puzzle_8/routing/routes.dart';
 
 Route<dynamic> generateRoute(RouteSettings settings) {
